@@ -1,0 +1,345 @@
+<title>Gülüm Sibel</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Manrope:wght@500;700&display=swap">
+<style>
+/* Layout: tek ekranlık sahneler; Boğaz gecesi zemin, ortada tek nesne (zarf, polaroid, mektup, soru). */
+:root {
+  color-scheme: dark;
+  --night: #0b1030;
+  --night-deep: #060819;
+  --bosphorus: #5d7bff;
+  --rose: #e0314f;
+  --rose-deep: #a81733;
+  --lamp: #ffc98a;
+  --paper: #fbf3e6;
+  --ink: #2a1a2e;
+  --mist: #c9cff5;
+  --display: "Cormorant Garamond", Georgia, serif;
+  --hand: "Caveat", "Segoe Script", cursive;
+  --ui: "Manrope", system-ui, sans-serif;
+}
+html, body { height: 100%; }
+body {
+  background:
+    radial-gradient(1px 1px at 12% 14%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 28% 8%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 44% 19%, var(--mist) 50%, transparent 51%),
+    radial-gradient(1px 1px at 61% 6%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 77% 16%, var(--mist) 50%, transparent 51%),
+    radial-gradient(1px 1px at 90% 9%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 8% 31%, var(--mist) 50%, transparent 51%),
+    radial-gradient(1px 1px at 86% 33%, #fff 50%, transparent 51%),
+    radial-gradient(120% 60% at 50% 105%, #2a2f7a 0%, transparent 60%),
+    linear-gradient(var(--night-deep), var(--night) 55%, #171a52);
+  color: var(--mist);
+  font-family: var(--ui);
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+#fx { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; }
+.bridge { position: fixed; left: 0; right: 0; bottom: 0; width: 100%; height: auto; opacity: .9; pointer-events: none; }
+.stage { position: relative; height: 100%; }
+.scene {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px;
+  padding-block: 24px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  text-align: center;
+  opacity: 0; visibility: hidden; transform: translateY(14px);
+  transition: opacity .7s ease, transform .7s ease, visibility 0s .7s;
+}
+.scene.on { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; z-index: 2; }
+h1, h2 { font-family: var(--display); font-style: italic; font-weight: 600; color: #fff; margin: 0; text-wrap: balance; line-height: 1.05; }
+h1 { font-size: clamp(40px, 11vw, 64px); }
+h2 { font-size: clamp(34px, 9vw, 54px); }
+.sub { margin: 0; font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: var(--lamp); }
+.hint { margin: 0; font-size: 13px; color: var(--mist); opacity: .8; }
+button { font: inherit; cursor: pointer; border: 0; color: inherit; background: none; }
+button:focus-visible { outline: 2px solid var(--lamp); outline-offset: 4px; }
+.btn {
+  font-weight: 700; font-size: 16px; padding: 14px 30px; border-radius: 999px;
+  background: var(--rose); color: #fff;
+  box-shadow: 0 8px 28px -8px var(--rose);
+  transition: transform .25s ease, background .2s;
+}
+.btn:hover { background: var(--rose-deep); }
+.btn.ghost { background: transparent; color: var(--mist); box-shadow: inset 0 0 0 1.5px var(--mist); }
+
+/* Zarf */
+.envelope { position: relative; width: min(300px, 78vw); aspect-ratio: 3 / 2; perspective: 900px; animation: float 4s ease-in-out infinite; }
+.env-body { position: absolute; inset: 0; background: var(--paper); border-radius: 6px; box-shadow: 0 24px 60px -18px #000; overflow: hidden; }
+.env-body::before { content: ""; position: absolute; inset: 0; background: #ecdcc4; clip-path: polygon(0 100%, 50% 45%, 100% 100%); }
+.env-body::after { content: ""; position: absolute; inset: 0; background: #f3e6d2; clip-path: polygon(0 0, 50% 55%, 0 100%); box-shadow: none; }
+.env-right { position: absolute; inset: 0; background: #f3e6d2; clip-path: polygon(100% 0, 50% 55%, 100% 100%); }
+.env-flap { position: absolute; inset: 0; background: #e4d2b6; clip-path: polygon(0 0, 100% 0, 50% 58%); transform-origin: top; transition: transform .8s ease; z-index: 2; border-radius: 6px; }
+.seal { position: absolute; left: 50%; top: 56%; width: 54px; height: 54px; margin: -27px 0 0 -27px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #f0607a, var(--rose-deep)); z-index: 3; display: grid; place-items: center; box-shadow: 0 3px 8px #0006; transition: opacity .4s, transform .4s; }
+.seal svg { width: 24px; height: 24px; fill: #ffd9df; }
+.env-to { position: absolute; left: 0; right: 0; bottom: 10%; z-index: 1; font-family: var(--hand); font-size: 26px; color: var(--ink); }
+.envelope.open .env-flap { transform: rotateX(180deg); }
+.envelope.open .seal { opacity: 0; transform: scale(1.6); }
+.envelope.open { animation: none; }
+@keyframes float { 50% { transform: translateY(-8px) rotate(-1.5deg); } }
+
+/* Polaroidler */
+.deck { position: relative; width: min(300px, 76vw, calc((100dvh - 250px) * .68)); aspect-ratio: 3 / 4.75; }
+.card {
+  position: absolute; inset: 0; background: var(--paper); padding: 10px 10px 0; border-radius: 4px;
+  box-shadow: 0 18px 40px -14px #000c; display: flex; flex-direction: column;
+  transform: rotate(var(--r)); transition: transform .65s cubic-bezier(.5,0,.3,1), opacity .6s;
+}
+.card img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 2px; display: block; background: #ddd; }
+.card p { margin: 0; flex: 1; display: grid; place-items: center; padding: 4px 6px; font-family: var(--hand); font-weight: 500; font-size: clamp(17px, 5vw, 21px); line-height: 1.1; color: var(--ink); text-wrap: balance; }
+.card.gone { transform: translate(var(--tx), -30%) rotate(var(--tr)); opacity: 0; pointer-events: none; }
+.deck-btn { position: absolute; inset: 0; z-index: 20; border-radius: 4px; }
+.count { font-variant-numeric: tabular-nums; }
+
+/* Mektup */
+.letter {
+  width: min(440px, 100%); max-height: calc(100% - 90px); overflow-y: auto;
+  background: var(--paper); color: var(--ink); border-radius: 6px; padding: 26px 24px;
+  text-align: left; font-family: var(--hand); font-size: clamp(22px, 6vw, 27px); line-height: 1.3;
+  box-shadow: 0 24px 60px -18px #000;
+  background-image: repeating-linear-gradient(transparent 0 1.25em, #2a1a2e14 1.25em calc(1.25em + 1px));
+  background-position: 0 30px;
+  white-space: pre-wrap; min-height: 8em;
+}
+.letter .cursor { display: inline-block; width: 2px; height: 1em; background: var(--rose); vertical-align: -0.15em; animation: blink 1s steps(2) infinite; }
+.letter .sign { display: block; text-align: right; font-weight: 700; color: var(--rose-deep); }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Soru */
+.answers { display: flex; gap: 18px; align-items: center; justify-content: center; flex-wrap: wrap; min-height: 70px; }
+#no { transition: transform .28s cubic-bezier(.3,1.4,.5,1); position: relative; z-index: 6; }
+.tease { min-height: 1.4em; font-family: var(--hand); font-size: 24px; color: var(--lamp); margin: 0; }
+
+/* Final */
+.final-photo { width: min(240px, 60vw, calc((100dvh - 330px) * .75)); aspect-ratio: 3 / 4; object-fit: cover; border: 8px solid var(--paper); border-radius: 4px; transform: rotate(-3deg); box-shadow: 0 24px 60px -18px #000; }
+.names { font-family: var(--hand); font-weight: 700; font-size: 32px; color: var(--lamp); margin: 0; }
+.names span { color: var(--rose); }
+.beat { display: inline-block; animation: beat 1.1s ease-in-out infinite; }
+@keyframes beat { 15% { transform: scale(1.25); } 30% { transform: scale(1); } 45% { transform: scale(1.18); } 60% { transform: scale(1); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .envelope, .beat, .letter .cursor { animation: none; }
+  .scene, .card, .env-flap, #no { transition-duration: .01s; }
+}
+</style>
+
+<svg class="bridge" viewBox="0 0 400 90" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+  <g fill="none" stroke-linecap="round">
+    <path d="M-20 34 Q40 70 100 22 Q200 96 300 22 Q360 70 420 34" stroke="#5d7bff" stroke-width="2.2" stroke-dasharray="0.1 7"/>
+    <path d="M-20 70 H420" stroke="#ffc98a" stroke-width="1.6" stroke-dasharray="0.1 9" opacity=".8"/>
+    <path d="M100 18 V72 M300 18 V72" stroke="#e0314f" stroke-width="3"/>
+  </g>
+  <rect x="0" y="72" width="400" height="18" fill="#060819"/>
+</svg>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<main class="stage">
+  <section class="scene on" id="s-intro">
+    <p class="sub">Umut'tan, sadece sana</p>
+    <h1>Sibel'e</h1>
+    <button class="envelope" id="envelope" aria-label="Zarfı aç">
+      <span class="env-body"><span class="env-right"></span><span class="env-to">Gülümm için</span></span>
+      <span class="env-flap"></span>
+      <span class="seal"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.200 3 4.500 6.600 4.500c2 0 3.700 1.100 5.400 3.200 1.700-2.100 3.400-3.200 5.400-3.200 3.600 0 5.700 3.700 4.200 7.200C19.500 16.400 12 21 12 21z"/></svg></span>
+    </button>
+    <p class="hint">Zarfa dokun</p>
+  </section>
+
+  <section class="scene" id="s-photos">
+    <p class="sub">Önce bir bak</p>
+    <div class="deck" id="deck"><button class="deck-btn" id="deckBtn" aria-label="Sonraki fotoğraf"></button></div>
+    <p class="hint">Fotoğrafa dokun · <span class="count" id="count">1 / 8</span></p>
+  </section>
+
+  <section class="scene" id="s-letter">
+    <div class="letter" id="letter" aria-live="polite"></div>
+    <button class="btn" id="toQuestion" hidden>Devam et</button>
+  </section>
+
+  <section class="scene" id="s-question">
+    <p class="sub">Tek bir sorum var</p>
+    <h2>Barışalım mı gülümm?</h2>
+    <div class="answers">
+      <button class="btn" id="yes">Evet</button>
+      <button class="btn ghost" id="no">Hayır</button>
+    </div>
+    <p class="tease" id="tease"></p>
+  </section>
+
+  <section class="scene" id="s-final">
+    <h2>Biliyordum!</h2>
+    <img class="final-photo" src="img/6.jpg" alt="Umut ve Sibel, Boğaz'da gece">
+    <p class="names">Umut <span class="beat">♥</span> Sibel</p>
+    <p class="hint">Seni çok seviyorum güzelimm. Şimdi bana yaz, bekliyorum.</p>
+    <button class="btn ghost" id="replay">Baştan izle</button>
+  </section>
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const show = id => document.querySelectorAll('.scene').forEach(s => s.classList.toggle('on', s.id === id));
+
+/* ---------- Fotoğraflar ---------- */
+const photos = [
+  [2, 'Sen yanımdayken yol da güzel, çamur da.'],
+  [5, 'Güneş bile seni kıskandı o gün.'],
+  [3, 'En sıradan akşam bile seninle özel.'],
+  [7, 'Bütün İstanbul önümüzde, ben yine sana bakıyorum.'],
+  [4, 'Kırmızı halı bize yakışıyor güzelimm.'],
+  [8, 'Başını omzuma yasladığın her an.'],
+  [6, 'Köprü ışıl ışıl ama benim gözüm sende.'],
+  [1, 'Masadaki gül güzeldi, asıl gülüm yanımdaydı.']
+];
+const deck = $('deck');
+let cards = [], current = 0;
+function buildDeck() {
+  cards.forEach(c => c.remove());
+  cards = photos.map(([n, text], i) => {
+    const c = document.createElement('figure');
+    c.className = 'card';
+    c.style.margin = 0;
+    c.style.zIndex = photos.length - i;
+    c.style.setProperty('--r', ((i % 2 ? 1 : -1) * (1.5 + (i * 37 % 4))) + 'deg');
+    c.style.setProperty('--tx', (i % 2 ? '-130%' : '130%'));
+    c.style.setProperty('--tr', (i % 2 ? '-24deg' : '24deg'));
+    c.innerHTML = `<img src="img/${n}.jpg" alt="Umut ve Sibel"><p>${text}</p>`;
+    deck.appendChild(c);
+    return c;
+  });
+  current = 0;
+  $('count').textContent = `1 / ${photos.length}`;
+}
+buildDeck();
+$('deckBtn').addEventListener('click', () => {
+  if (current >= photos.length - 1) { show('s-letter'); setTimeout(typeLetter, 600); return; }
+  cards[current].classList.add('gone');
+  current++;
+  $('count').textContent = `${current + 1} / ${photos.length}`;
+});
+
+/* ---------- Zarf ---------- */
+$('envelope').addEventListener('click', () => {
+  $('envelope').classList.add('open');
+  setTimeout(() => show('s-photos'), reduce ? 50 : 1000);
+});
+
+/* ---------- Mektup ---------- */
+const letterText =
+`Gülümm,
+
+Biliyorum, tartıştık. İkimiz de kırıldık.
+
+Ama o fotoğraflara bakınca tek bir şey görüyorum: biz yan yanayken ne kadar mutluyuz.
+
+Kırgınlıklarımız bitsin istiyorum. Tekrar eskisi gibi gülelim, eskisi gibi mutlu olalım.
+
+Seni çok seviyorum güzelimm.
+`;
+let typing = null;
+function finishLetter() {
+  clearInterval(typing); typing = null;
+  $('letter').innerHTML = '';
+  $('letter').append(letterText);
+  const s = document.createElement('span'); s.className = 'sign'; s.textContent = 'Umut';
+  $('letter').append(s);
+  $('toQuestion').hidden = false;
+}
+function typeLetter() {
+  const el = $('letter');
+  $('toQuestion').hidden = true;
+  if (reduce) return finishLetter();
+  let i = 0;
+  el.innerHTML = '<span id="typed"></span><span class="cursor"></span>';
+  const typed = $('typed');
+  clearInterval(typing);
+  typing = setInterval(() => {
+    typed.textContent = letterText.slice(0, ++i);
+    el.scrollTop = el.scrollHeight;
+    if (i >= letterText.length) finishLetter();
+  }, 42);
+}
+$('letter').addEventListener('click', () => { if (typing) finishLetter(); });
+$('toQuestion').addEventListener('click', () => show('s-question'));
+
+/* ---------- Soru ---------- */
+const teases = ['Emin misin gülüm?', 'Yakalayamazsın ki.', 'Bir daha düşün bence.', 'Bu buton sana küs.', 'Tamam tamam, pes ettim.'];
+let dodges = 0, base = null;
+const no = $('no'), yes = $('yes');
+function dodge(e) {
+  if (no.dataset.yes) return;
+  if (e) e.preventDefault();
+  dodges++;
+  $('tease').textContent = teases[Math.min(dodges, teases.length) - 1];
+  yes.style.transform = `scale(${Math.min(1 + dodges * .09, 1.5)})`;
+  if (dodges >= teases.length) {
+    no.style.transform = ''; no.textContent = 'Evet'; no.dataset.yes = '1';
+    no.classList.remove('ghost');
+    return;
+  }
+  if (!base) { const r = no.getBoundingClientRect(); base = { x: r.left, y: r.top, w: r.width, h: r.height }; }
+  const vw = innerWidth, vh = innerHeight, yr = yes.getBoundingClientRect();
+  let x, y, tries = 0;
+  do {
+    x = 16 + Math.random() * Math.max(1, vw - base.w - 32);
+    y = 70 + Math.random() * Math.max(1, vh - base.h - 150);
+    tries++;
+  } while (tries < 20 && x < yr.right + 20 && x + base.w > yr.left - 20 && y < yr.bottom + 20 && y + base.h > yr.top - 20);
+  no.style.transform = `translate(${x - base.x}px, ${y - base.y}px)`;
+}
+no.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') dodge(); });
+no.addEventListener('pointerdown', e => { if (!no.dataset.yes) dodge(e); });
+no.addEventListener('click', e => { if (no.dataset.yes) sayYes(); else if (e.detail === 0) dodge(); });
+yes.addEventListener('click', sayYes);
+function sayYes() { show('s-final'); burst(); }
+
+$('replay').addEventListener('click', () => {
+  dodges = 0; base = null;
+  no.style.transform = ''; no.textContent = 'Hayır'; delete no.dataset.yes; no.classList.add('ghost');
+  yes.style.transform = ''; $('tease').textContent = '';
+  $('envelope').classList.remove('open');
+  buildDeck(); show('s-intro');
+});
+
+/* ---------- Gül yaprakları ---------- */
+const cv = $('fx'), ctx = cv.getContext('2d');
+let W, H, petals = [];
+function resize() {
+  const d = Math.min(devicePixelRatio || 1, 2);
+  W = innerWidth; H = innerHeight;
+  cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0);
+}
+addEventListener('resize', resize); resize();
+const tints = ['#e0314f', '#f0607a', '#a81733', '#ff8fa3'];
+function petal(top) {
+  return {
+    x: Math.random() * W, y: top ? -20 - Math.random() * H * .6 : Math.random() * H,
+    s: 7 + Math.random() * 9, vy: .5 + Math.random() * 1.1, sway: Math.random() * 6.28,
+    rot: Math.random() * 6.28, vr: (Math.random() - .5) * .04,
+    c: tints[Math.random() * tints.length | 0], a: .55 + Math.random() * .4, extra: false
+  };
+}
+for (let i = 0; i < 14; i++) petals.push(petal(false));
+function burst() {
+  if (reduce) return;
+  for (let i = 0; i < 90; i++) { const p = petal(true); p.vy += 1.5; p.extra = true; petals.push(p); }
+}
+function draw() {
+  ctx.clearRect(0, 0, W, H);
+  for (const p of petals) {
+    p.y += p.vy; p.sway += .02; p.x += Math.sin(p.sway) * .7; p.rot += p.vr;
+    if (p.y > H + 20) { if (p.extra) { p.dead = true; continue; } Object.assign(p, petal(true), { y: -20 }); }
+    ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot); ctx.globalAlpha = p.a; ctx.fillStyle = p.c;
+    ctx.beginPath(); ctx.moveTo(0, -p.s);
+    ctx.bezierCurveTo(p.s, -p.s * .6, p.s * .7, p.s * .8, 0, p.s);
+    ctx.bezierCurveTo(-p.s * .7, p.s * .8, -p.s, -p.s * .6, 0, -p.s);
+    ctx.fill(); ctx.restore();
+  }
+  petals = petals.filter(p => !p.dead);
+  if (!reduce) requestAnimationFrame(draw);
+}
+draw();
+</script>
