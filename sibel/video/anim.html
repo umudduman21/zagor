@@ -1,0 +1,269 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cormorant+Garamond:ital,wght@1,600&display=swap">
+<style>
+html,body{margin:0;background:#060819}
+svg{display:block;width:720px;height:1280px}
+.hand{font-family:"Caveat",cursive;font-weight:700}
+.disp{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600}
+</style></head><body>
+<svg id="v" viewBox="0 0 720 1280" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#060819"/><stop offset=".6" stop-color="#0f1440"/><stop offset="1" stop-color="#262a78"/>
+  </linearGradient>
+  <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#1a1e5e"/><stop offset="1" stop-color="#0a0c26"/>
+  </linearGradient>
+  <path id="heart" d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 3 4.5 6.6 4.5c2 0 3.7 1.1 5.4 3.2 1.7-2.100 3.400-3.200 5.400-3.200 3.600 0 5.700 3.700 4.200 7.200C19.500 16.400 12 21 12 21z"/>
+  <clipPath id="hl"><polygon points="0,0 12.6,0 10.8,8 13.4,12 10.6,16 12.2,24 0,24"/></clipPath>
+  <clipPath id="hr"><polygon points="24,0 12.6,0 10.8,8 13.4,12 10.6,16 12.2,24 24,24"/></clipPath>
+</defs>
+<rect width="720" height="1280" fill="url(#sky)"/>
+<g id="stars"></g>
+<circle cx="648" cy="78" r="34" fill="#fff3d6" opacity=".9"/><circle cx="634" cy="70" r="31" fill="#090c28"/>
+
+<!-- Boğaz -->
+<rect y="770" width="720" height="140" fill="url(#water)"/>
+<g id="shore"></g>
+<g id="bridge" fill="none" stroke-linecap="round">
+  <path d="M-40 640 Q60 760 150 560 Q360 860 570 560 Q660 760 760 640" stroke="#7d95ff" stroke-width="6" stroke-dasharray="0.1 17"/>
+  <path d="M-40 770 H760" stroke="#ffc98a" stroke-width="5" stroke-dasharray="0.1 20"/>
+  <path d="M150 548 V800 M570 548 V800" stroke="#e0314f" stroke-width="9"/>
+</g>
+<g id="refl"></g>
+<rect y="895" width="720" height="385" fill="#080a20"/>
+<rect y="895" width="720" height="5" fill="#2b2f6e"/>
+
+<g id="cloud" opacity="0" transform="translate(0 -80)">
+  <g fill="#5b5f7d"><ellipse cx="360" cy="250" rx="190" ry="62"/><circle cx="260" cy="225" r="62"/><circle cx="350" cy="195" r="78"/><circle cx="450" cy="220" r="66"/></g>
+  <g fill="#454964"><ellipse cx="360" cy="275" rx="180" ry="40"/></g>
+  <path id="bolt" d="M372 300 L338 372 L366 372 L340 440 L402 350 L372 350 L396 300 Z" fill="#ffe27a" opacity="0"/>
+</g>
+<g id="rain" stroke="#9fb0ff" stroke-width="3" stroke-linecap="round" opacity="0"></g>
+
+<g id="bigheart"><g id="hL"><use href="#heart" clip-path="url(#hl)" fill="#e0314f"/></g><g id="hR"><use href="#heart" clip-path="url(#hr)" fill="#e0314f"/></g></g>
+
+<g id="bubbles" opacity="0" transform="translate(0 -135)">
+  <g id="b1"><path d="M150 430 h150 a22 22 0 0 1 22 22 v60 a22 22 0 0 1 -22 22 h-60 l-22 34 l-2 -34 h-66 a22 22 0 0 1 -22 -22 v-60 a22 22 0 0 1 22 -22z" fill="#fff"/><text x="225" y="503" text-anchor="middle" class="hand" font-size="54" fill="#a81733">!?#@!</text></g>
+  <g id="b2"><path d="M420 400 h150 a22 22 0 0 1 22 22 v60 a22 22 0 0 1 -22 22 h-66 l-2 34 l-22 -34 h-60 a22 22 0 0 1 -22 -22 v-60 a22 22 0 0 1 22 -22z" fill="#fff"/><text x="495" y="473" text-anchor="middle" class="hand" font-size="54" fill="#a81733">#!?!!</text></g>
+</g>
+
+<g id="think" opacity="0" transform="translate(-30 -125)">
+  <circle cx="232" cy="470" r="9" fill="#fff"/><circle cx="256" cy="440" r="14" fill="#fff"/>
+  <ellipse cx="330" cy="385" rx="92" ry="64" fill="#fff"/>
+  <g id="thinkHeart" transform="translate(330 388) scale(3.4) translate(-12 -12.750)"><use href="#heart" fill="#e0314f"/></g>
+</g>
+
+<g id="chars"></g>
+<g id="hearts"></g>
+<g id="petals"></g>
+<rect id="flash" width="720" height="1280" fill="#fff" opacity="0"/>
+
+<text id="title" x="360" y="190" text-anchor="middle" class="hand" font-size="64" fill="#ffc98a" opacity="0">Sibel &amp; Umut</text>
+<g id="endT" opacity="0" text-anchor="middle">
+  <text x="360" y="140" class="disp" font-size="86" fill="#fff">Barışalım mı</text>
+  <text x="360" y="228" class="disp" font-size="86" fill="#fff">gülümm?</text>
+</g>
+<text id="cap" text-anchor="middle" class="hand" font-size="64" fill="#fff"></text>
+<text id="sign" x="360" y="1180" text-anchor="middle" class="hand" font-size="60" fill="#ffc98a" opacity="0">Umut</text>
+</svg>
+<script>
+const $ = id => document.getElementById(id);
+const NS = 'http://www.w3.org/2000/svg';
+function rnd(i){ const x = Math.sin(i * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); }
+const ease = x => x < .5 ? 2*x*x : 1 - Math.pow(-2*x + 2, 2) / 2;
+function kf(t, a){ if (t <= a[0][0]) return a[0][1]; for (let i = 1; i < a.length; i++){ if (t <= a[i][0]){ const [t0,v0] = a[i-1], [t1,v1] = a[i]; return v0 + (v1 - v0) * ease((t - t0) / (t1 - t0)); } } return a[a.length-1][1]; }
+
+/* ---- sabit sahne ---- */
+let s = '';
+for (let i = 0; i < 70; i++) s += `<circle id="st${i}" cx="${(rnd(i)*720).toFixed(0)}" cy="${(rnd(i+99)*620).toFixed(0)}" r="${(1+rnd(i+7)*1.8).toFixed(1)}" fill="#fff"/>`;
+$('stars').innerHTML = s;
+s = '';
+for (let i = 0; i < 46; i++){ const x = rnd(i+300)*720, c = ['#ffc98a','#7d95ff','#fff','#ff8fa3'][i%4]; s += `<circle cx="${x.toFixed(0)}" cy="${(752+rnd(i+400)*16).toFixed(0)}" r="${(2+rnd(i+5)*2.5).toFixed(1)}" fill="${c}" opacity=".8"/>`; }
+$('shore').innerHTML = `<path d="M0 770 L0 742 Q120 722 230 744 T470 738 T720 730 L720 770Z" fill="#0b0e2e"/>` + s;
+s = '';
+for (let i = 0; i < 30; i++){ const x = rnd(i+500)*720, c = ['#ffc98a','#7d95ff','#e0314f'][i%3]; s += `<rect id="rf${i}" x="${x.toFixed(0)}" y="${(785+rnd(i+600)*90).toFixed(0)}" width="${(14+rnd(i+3)*30).toFixed(0)}" height="3" rx="1.500" fill="${c}"/>`; }
+$('refl').innerHTML = s;
+s = ''; for (let i = 0; i < 60; i++) s += `<line id="rn${i}"/>`; $('rain').innerHTML = s;
+s = ''; for (let i = 0; i < 26; i++) s += `<g id="fh${i}"><use href="#heart" fill="${['#e0314f','#ff8fa3','#f0607a'][i%3]}"/></g>`; $('hearts').innerHTML = s;
+s = ''; for (let i = 0; i < 40; i++) s += `<path id="pt${i}" d="M0 -10 C10 -6 7 8 0 10 C-7 8 -10 -6 0 -10Z" fill="${['#e0314f','#f0607a','#a81733','#ff8fa3'][i%4]}"/>`; $('petals').innerHTML = s;
+
+/* ---- karakterler ---- */
+function face(id, o){
+  const lash = o.her ? `<path d="M-38 -283 l-7 -5 M38 -283 l7 -5" stroke="#1a1210" stroke-width="3" stroke-linecap="round"/>` : '';
+  return `<g id="${id}-face">
+    <g id="${id}-bl" opacity="${o.her ? .55 : 0}"><ellipse cx="-44" cy="-250" rx="14" ry="9" fill="#ff8fa3"/><ellipse cx="44" cy="-250" rx="14" ry="9" fill="#ff8fa3"/></g>
+    <g id="${id}-brL"><path d="M-46 -${o.her?302:300} L-14 -${o.her?304:302}" stroke="#1a1210" stroke-width="${o.her?5:9}" stroke-linecap="round"/></g>
+    <g id="${id}-brR"><path d="M46 -${o.her?302:300} L14 -${o.her?304:302}" stroke="#1a1210" stroke-width="${o.her?5:9}" stroke-linecap="round"/></g>
+    <g id="${id}-eo">${lash}<ellipse cx="-28" cy="-276" rx="${o.her?8:7}" ry="${o.her?11:9}" fill="#2a1a14"/><ellipse cx="28" cy="-276" rx="${o.her?8:7}" ry="${o.her?11:9}" fill="#2a1a14"/><circle cx="-25" cy="-280" r="3" fill="#fff"/><circle cx="31" cy="-280" r="3" fill="#fff"/></g>
+    <g id="${id}-ec" fill="none" stroke="#2a1a14" stroke-width="5" stroke-linecap="round" opacity="0"><path d="M-38 -274 Q-28 -286 -18 -274"/><path d="M18 -274 Q28 -286 38 -274"/></g>
+    ${o.her ? '' : `<path d="M-64 -262 Q-56 -204 0 -200 Q56 -204 64 -262" fill="none" stroke="#1a1210" stroke-width="13" opacity=".3"/><ellipse cx="0" cy="-212" rx="13" ry="7" fill="#1a1210" opacity=".55"/><path d="M-24 -244 Q0 -254 24 -244" fill="none" stroke="#1a1210" stroke-width="6" stroke-linecap="round"/>`}
+    <path id="${id}-ms" d="M-15 -${o.her?238:234} Q0 -${o.her?224:221} 15 -${o.her?238:234}" fill="none" stroke="${o.her?'#c8475c':'#8c3a3a'}" stroke-width="5" stroke-linecap="round"/>
+    <path id="${id}-mf" d="M-12 -${o.her?228:225} Q0 -${o.her?238:234} 12 -${o.her?228:225}" fill="none" stroke="${o.her?'#c8475c':'#8c3a3a'}" stroke-width="5" stroke-linecap="round" opacity="0"/>
+  </g>`;
+}
+const SKIN_H = '#e9b893', SKIN_S = '#f2c6a6';
+const umut = `<g id="u">
+  <ellipse cx="0" cy="4" rx="80" ry="10" fill="#000" opacity=".35"/>
+  <rect x="-36" y="-95" width="30" height="92" rx="10" fill="#b8ab9a"/><rect x="6" y="-95" width="30" height="92" rx="10" fill="#b8ab9a"/>
+  <ellipse cx="-24" cy="-3" rx="24" ry="10" fill="#f4f4f4"/><ellipse cx="24" cy="-3" rx="24" ry="10" fill="#f4f4f4"/>
+  <g id="u-aL"><path d="M-52 -188 L-64 -108" stroke="${SKIN_H}" stroke-width="22" stroke-linecap="round"/><path d="M-52 -190 L-58 -150" stroke="#f6f1e8" stroke-width="28" stroke-linecap="round"/><path d="M-66 -128 l6 -14 m-4 22 l8 -10" stroke="#3a3a48" stroke-width="3" stroke-linecap="round"/></g>
+  <rect x="-56" y="-206" width="112" height="124" rx="26" fill="#f6f1e8"/>
+  <g stroke="#b9a58c" stroke-width="3"><path d="M-36 -200 V-86 M-18 -204 V-84 M0 -204 V-84 M18 -204 V-84 M36 -200 V-86"/></g>
+  <path d="M-20 -206 L0 -180 L20 -206" fill="${SKIN_H}"/>
+  <g id="u-aR"><path d="M52 -188 L64 -108" stroke="${SKIN_H}" stroke-width="22" stroke-linecap="round"/><path d="M52 -190 L58 -150" stroke="#f6f1e8" stroke-width="28" stroke-linecap="round"/>
+    <g id="rose" opacity="0"><path d="M62 -120 L72 -52" stroke="#3f8f4f" stroke-width="5" stroke-linecap="round"/><path d="M68 -84 q16 -2 18 12 q-14 2 -18 -12" fill="#3f8f4f"/><g transform="translate(74 -40)"><circle r="19" fill="#e0314f"/><path d="M-10 -4 q10 -14 20 0 q-4 12 -10 12 q-8 -2 -10 -12" fill="#a81733"/><circle cx="0" cy="1" r="5" fill="#f0607a"/></g></g>
+  </g>
+  <g id="u-head">
+    <rect x="-16" y="-222" width="32" height="30" fill="${SKIN_H}"/>
+    <circle cx="-72" cy="-272" r="12" fill="${SKIN_H}"/><circle cx="72" cy="-272" r="12" fill="${SKIN_H}"/>
+    <circle cx="0" cy="-275" r="72" fill="${SKIN_H}"/>
+    <path d="M-72 -268 C-76 -300 -70 -318 -58 -330 L-52 -296 Z M72 -268 C76 -300 70 -318 58 -330 L52 -296 Z" fill="#1a1210" opacity=".55"/>
+    <path d="M-66 -306 C-74 -366 -26 -382 14 -374 C58 -380 84 -344 66 -306 C56 -326 40 -332 16 -330 C-14 -328 -44 -322 -66 -306 Z" fill="#1a1210"/>
+    <path d="M-40 -362 C-10 -378 30 -374 54 -350" fill="none" stroke="#3a2a22" stroke-width="5" stroke-linecap="round"/>
+    ${face('u', {})}
+  </g></g>`;
+const sibel = `<g id="s">
+  <ellipse cx="0" cy="4" rx="76" ry="10" fill="#000" opacity=".35"/>
+  <path id="s-hb" d="M-78 -290 C-90 -384 90 -384 78 -290 L92 -112 Q0 -88 -92 -112 Z" fill="#2b1a14"/>
+  <path d="M-34 -98 L-42 -4 H-8 L-2 -70 L2 -70 L8 -4 H42 L34 -98 Z" fill="#86a9cf"/>
+  <ellipse cx="-24" cy="-2" rx="20" ry="8" fill="#1c1c24"/><ellipse cx="24" cy="-2" rx="20" ry="8" fill="#1c1c24"/>
+  <g id="s-aR"><path d="M44 -186 L54 -110" stroke="#6b4636" stroke-width="20" stroke-linecap="round"/><circle cx="55" cy="-104" r="10" fill="${SKIN_S}"/></g>
+  <rect x="-46" y="-204" width="92" height="116" rx="24" fill="#6b4636"/>
+  <path d="M-18 -204 Q0 -178 18 -204" fill="${SKIN_S}"/>
+  <path d="M-22 -200 Q0 -160 22 -200" fill="none" stroke="#e6b84d" stroke-width="2.500"/><circle cx="0" cy="-178" r="4" fill="#e6b84d"/>
+  <g id="s-aL"><path d="M-44 -186 L-54 -110" stroke="#6b4636" stroke-width="20" stroke-linecap="round"/><circle cx="-55" cy="-104" r="10" fill="${SKIN_S}"/></g>
+  <g id="s-head">
+    <rect x="-13" y="-220" width="26" height="26" fill="${SKIN_S}"/>
+    <circle cx="0" cy="-275" r="68" fill="${SKIN_S}"/>
+    <path d="M0 -348 C-52 -354 -80 -322 -72 -246 C-62 -300 -40 -328 0 -340 C40 -328 62 -300 72 -246 C80 -322 52 -354 0 -348 Z" fill="#2b1a14"/>
+    <path d="M-70 -270 C-88 -200 -84 -150 -74 -112 L-52 -118 C-60 -170 -64 -220 -62 -262 Z M70 -270 C88 -200 84 -150 74 -112 L52 -118 C60 -170 64 -220 62 -262 Z" fill="#2b1a14"/>
+    <circle cx="-66" cy="-250" r="7" fill="none" stroke="#e6b84d" stroke-width="3"/><circle cx="66" cy="-250" r="7" fill="none" stroke="#e6b84d" stroke-width="3"/>
+    ${face('s', {her:true})}
+  </g></g>`;
+$('chars').innerHTML = umut + sibel;
+
+function pose(id, p){
+  $(id).setAttribute('transform', `translate(${p.x} ${900 + (p.y||0)}) rotate(${p.lean||0}) scale(1.3)`);
+  $(id+'-head').setAttribute('transform', `rotate(${p.tilt||0} 0 -205)`);
+  $(id+'-face').setAttribute('transform', `translate(${p.look||0} 0)`);
+  const sx = id === 'u' ? 52 : 44;
+  $(id+'-aL').setAttribute('transform', `rotate(${p.aL||0} ${-sx} -188)`);
+  $(id+'-aR').setAttribute('transform', `rotate(${p.aR||0} ${sx} -188)`);
+  $(id+'-ms').setAttribute('opacity', p.smile);
+  $(id+'-mf').setAttribute('opacity', p.frown);
+  $(id+'-eo').setAttribute('opacity', 1 - (p.closed||0));
+  $(id+'-ec').setAttribute('opacity', p.closed||0);
+  const b = (p.angry||0) * 16 - (p.sad||0) * 14;
+  $(id+'-brL').setAttribute('transform', `rotate(${b} -30 -301)`);
+  $(id+'-brR').setAttribute('transform', `rotate(${-b} 30 -301)`);
+  $(id+'-bl').setAttribute('opacity', p.blush);
+}
+
+const caps = [
+  [0.6, 4.2, ['Biz yan yanayken', 'her şey güzeldi.']],
+  [5.0, 8.6, ['Sonra bir gün', 'tartıştık...']],
+  [9.0, 12.3, ['İkimiz de kırıldık.']],
+  [12.7, 15.9, ['Ama sensiz olmuyor', 'gülümm.']],
+  [16.3, 20.2, ['Kırgınlıklarımız bitsin.']],
+  [20.7, 25.2, ['Tekrar eskisi gibi', 'mutlu olalım.']],
+  [27.8, 32.6, ['Seni çok seviyorum', 'güzelimm.']]
+];
+const DUR = 38;
+
+function render(t){
+  /* yıldız, yansıma */
+  for (let i = 0; i < 70; i++) $('st'+i).setAttribute('opacity', (.45 + .45 * Math.sin(t * (1 + rnd(i)*2) + i)).toFixed(2));
+  for (let i = 0; i < 30; i++) $('rf'+i).setAttribute('opacity', (.25 + .3 * Math.sin(t * 2 + i * 1.7)).toFixed(2));
+  const glow = kf(t, [[0,.9],[5.5,.9],[7,.3],[15,.3],[18,.9]]) * (t > 27 ? .8 + .2 * Math.sin(t * 8) : 1);
+  $('bridge').setAttribute('opacity', glow.toFixed(2));
+
+  /* karakterler */
+  const g = kf(t, [[4.6,0],[5,1],[6.3,1],[6.8,0]]);
+  const walkU = (t > 15.5 && t < 19.5) || (t > 25 && t < 27.5), walkS = t > 25 && t < 27.5;
+  const hug = kf(t, [[26.6,0],[27.8,1]]);
+  pose('u', {
+    x: kf(t, [[0,265],[6.5,265],[8.5,140],[15.5,140],[19.5,212],[25,212],[27.5,285]]),
+    y: (walkU ? -Math.abs(Math.sin(t * 9)) * 10 : Math.sin(t * 2) * 1.5),
+    lean: kf(t, [[6.3,0],[7.5,-5],[9.5,-3],[15,0],[26.5,0],[27.8,4]]) + g * Math.sin(t * 15) * 2,
+    tilt: hug * 9 + kf(t, [[9,0],[10,8],[14.5,8],[15.5,0]]) * -1,
+    look: kf(t, [[0,7],[6.4,7],[7.4,-17],[10.8,-17],[11.6,9],[40,9]]),
+    aR: kf(t, [[0,-22],[4.5,-22],[5.2,0],[15.2,0],[16.6,-88],[25,-88],[27.5,-176]]) * (1 - g) + g * (-62 + 24 * Math.sin(t * 16)),
+    aL: g * (28 + 20 * Math.sin(t * 13 + 2)) + hug * 12,
+    smile: kf(t, [[4.5,1],[5.1,0],[15,0],[16.5,.7],[22,1]]),
+    frown: kf(t, [[4.6,0],[5.4,1],[14.5,1],[15.6,0]]),
+    angry: kf(t, [[4.6,0],[5.3,1],[8.6,1],[9.6,0]]),
+    sad: kf(t, [[9.2,0],[10.2,1],[15.5,1],[21,0]]),
+    closed: hug, blush: kf(t, [[21,0],[23,.5]])
+  });
+  pose('s', {
+    x: kf(t, [[0,455],[6.5,455],[8.5,580],[25,580],[27.5,437]]),
+    y: (walkS ? -Math.abs(Math.sin(t * 9 + 1)) * 9 : Math.sin(t * 2 + 1) * 1.5),
+    lean: kf(t, [[6.3,0],[7.5,5],[9.5,3],[21,3],[22,0],[26.5,0],[27.8,-4]]) + g * Math.sin(t * 15 + 1) * 2,
+    tilt: hug * -9 + kf(t, [[9.5,0],[10.5,8],[20.6,8],[21.6,0]]),
+    look: kf(t, [[0,-7],[6.4,-7],[7.4,17],[20.6,17],[21.6,-9],[40,-9]]),
+    aL: kf(t, [[0,22],[4.5,22],[5.2,0],[22.4,0],[23.8,58],[25,58],[27.5,30]]) * (1 - g) + g * (60 + 24 * Math.sin(t * 16 + 1.2)),
+    aR: -g * (26 + 20 * Math.sin(t * 13)) - hug * 12,
+    smile: kf(t, [[4.5,1],[5.1,0],[21.2,0],[22.6,1]]),
+    frown: kf(t, [[4.6,0],[5.4,1],[20.8,1],[21.6,0]]),
+    angry: kf(t, [[4.6,0],[5.3,1],[9,1],[10,0]]),
+    sad: kf(t, [[9.5,0],[10.5,1],[20.6,1],[21.6,0]]),
+    closed: hug, blush: .55 + kf(t, [[21.2,0],[22.8,.45]])
+  });
+  $('rose').setAttribute('opacity', kf(t, [[15.2,0],[16.2,1]]));
+
+  /* büyük kalp */
+  const d = kf(t, [[4.9,0],[6,36],[20.8,36],[23.6,0]]);
+  const hs = 7 * (1 + (d < 1 ? .09 * Math.max(0, Math.sin(t * 6)) : 0)) * kf(t, [[0,0],[.8,1],[26.5,1],[27.6,1.15],[32.8,1.15],[34,.8]]);
+  const hy = kf(t, [[0,345],[40,345]]), hop = kf(t, [[4.9,1],[6,.6],[20.8,.6],[23.6,1]]);
+  $('bigheart').setAttribute('opacity', hop);
+  $('hL').setAttribute('transform', `translate(${360 - d} ${hy + d * .3}) rotate(${-d * .5}) scale(${hs}) translate(-12 -12.75)`);
+  $('hR').setAttribute('transform', `translate(${360 + d} ${hy + d * .3}) rotate(${d * .5}) scale(${hs}) translate(-12 -12.75)`);
+
+  /* tartışma */
+  $('bubbles').setAttribute('opacity', kf(t, [[4.7,0],[5.1,1],[6.4,1],[6.9,0]]));
+  $('b1').setAttribute('transform', `translate(${Math.sin(t * 40) * 4} ${Math.cos(t * 33) * 4})`);
+  $('b2').setAttribute('transform', `translate(${Math.sin(t * 37 + 2) * 4} ${Math.cos(t * 41) * 4})`);
+  $('cloud').setAttribute('opacity', kf(t, [[5.4,0],[6.6,1],[14.6,1],[16.6,0]]));
+  const fl = Math.max(0, 1 - Math.abs(t - 6.9) * 6, 1 - Math.abs(t - 8.3) * 6, 1 - Math.abs(t - 11.2) * 6);
+  $('bolt').setAttribute('opacity', Math.min(1, fl * 1.6));
+  $('flash').setAttribute('opacity', fl * .28);
+  const ro = kf(t, [[7,0],[8,.7],[14,.7],[15.6,0]]);
+  $('rain').setAttribute('opacity', ro);
+  if (ro > 0) for (let i = 0; i < 60; i++){ const x = rnd(i+40) * 760 - 20, y = 250 + ((rnd(i+80) * 660 + t * 620) % 660); const l = $('rn'+i); l.setAttribute('x1', x); l.setAttribute('y1', y); l.setAttribute('x2', x - 6); l.setAttribute('y2', y + 24); }
+  $('think').setAttribute('opacity', kf(t, [[11.4,0],[12.2,1],[14.6,1],[15.3,0]]));
+  $('thinkHeart').setAttribute('transform', `translate(330 388) scale(${3.4 + .3 * Math.sin(t * 6)}) translate(-12 -12.75)`);
+
+  /* final: kalpler ve gül yaprakları */
+  for (let i = 0; i < 26; i++){
+    const st = 27.4 + rnd(i+900) * 5, life = 4.5, u = ((t - st) % life + life) % life / life, el = $('fh'+i);
+    if (t < st){ el.setAttribute('opacity', 0); continue; }
+    const x = 120 + rnd(i+910) * 480 + Math.sin(t * 2 + i) * 14, y = 880 - u * 820, sc = 1.6 + rnd(i+920) * 2.4;
+    el.setAttribute('opacity', (Math.sin(u * Math.PI) * .9).toFixed(2));
+    el.setAttribute('transform', `translate(${x} ${y}) scale(${sc}) translate(-12 -12.75)`);
+  }
+  for (let i = 0; i < 40; i++){
+    const st = 27 + rnd(i+700) * 4, el = $('pt'+i);
+    if (t < st){ el.setAttribute('opacity', 0); continue; }
+    const sp = 110 + rnd(i+710) * 120, y = -30 + ((t - st) * sp) % 1340, x = rnd(i+720) * 720 + Math.sin(t * 1.6 + i) * 26;
+    el.setAttribute('opacity', .8);
+    el.setAttribute('transform', `translate(${x} ${y}) rotate(${t * 60 * (rnd(i) - .5) + i * 40}) scale(${1 + rnd(i+730)})`);
+  }
+
+  /* yazılar */
+  $('title').setAttribute('opacity', kf(t, [[.2,0],[1,1],[4,1],[4.7,0]]));
+  let html = '', op = 0;
+  for (const [a, b, lines] of caps) if (t >= a && t <= b){
+    op = Math.min(1, (t - a) / .5, (b - t) / .5);
+    const y0 = lines.length === 1 ? 1085 : 1050;
+    html = lines.map((l, i) => `<tspan x="360" y="${y0 + i * 72}">${l}</tspan>`).join('');
+  }
+  $('cap').innerHTML = html; $('cap').setAttribute('opacity', op);
+  $('endT').setAttribute('opacity', kf(t, [[33,0],[34.2,1]]));
+  $('sign').setAttribute('opacity', kf(t, [[34.4,0],[35.4,1]]));
+  $('v').style.opacity = kf(t, [[0,0],[.5,1],[DUR - .8,1],[DUR,0]]);
+}
+window.render = render;
+if (location.hash === '#play'){ const t0 = performance.now(); (function loop(){ render(((performance.now() - t0) / 1000) % DUR); requestAnimationFrame(loop); })(); } else render(2);
+</script></body></html>
