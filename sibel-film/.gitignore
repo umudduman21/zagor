@@ -1,0 +1,10 @@
+# Kişisel fotoğraflar ve üretilen medya depoya girmez
+references/**/*.jpg
+references/**/*.jpeg
+references/**/*.png
+references/**/*.heic
+keyframes/*
+clips/*
+music/*
+output/*
+!**/.gitkeep
